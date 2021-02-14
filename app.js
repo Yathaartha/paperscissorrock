@@ -19,15 +19,19 @@ function getPlayerChoice() {
   return selection;
 }
 
-function getComputerChoice() {
-  const randomValue = Math.random();
-  if (randomValue < 0.34) {
-    return ROCK;
-  } else if (randomValue < 0.67) {
-    return PAPER;
-  } else {
-    return SCISSORS;
-  }
+const getWinner = (cChoice, pChoice) => //alternate way to define function
+  cChoice === pChoice ? RESULT_DRAW : (cChoice === ROCK && pChoice === PAPER || cChoice === PAPER && pChoice === SCISSORS || cChoice === SCISSORS && pChoice === ROCK) ? RESULT_PLAYER_WINS : RESULT_COMPUTER_WINS;
+}
+
+// function getComputerChoice() {
+//   const randomValue = Math.random();
+//   if (randomValue < 0.34) {
+//     return ROCK;
+//   } else if (randomValue < 0.67) {
+//     return PAPER;
+//   } else {
+//     return SCISSORS;
+//   }
 }
 
 const getWinner = function(cChoice, pChoice) {
@@ -40,7 +44,7 @@ const getWinner = function(cChoice, pChoice) {
   }
 }
 
-startGameBtn.addEventListener('click', function(){//anonymous function
+startGameBtn.addEventListener('click', () => {//anonymous function
   if (gameIsRunning) {
     return;
   }
