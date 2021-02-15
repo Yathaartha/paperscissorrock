@@ -56,9 +56,9 @@ startGameBtn.addEventListener('click', () => {//anonymous function
   if (playerSelection) {
     winner = getWinner(computerChoice, playerSelection);
   } else {
-    winner = getWinner(computerChoice);
+    winner = getWinner(computerChoice, playerSelection);
   }
-  let message = `You picked ${playerSelection}, computer picked ${computerChoice}, therefore you `;
+  let message = `You picked ${playerSelection ? playerSelection : DEFAULT_USER_CHOICE}, computer picked ${computerChoice}, therefore you `;
   if (winner === RESULT_DRAW) {
     message = message + 'had a draw.'
   } else if (winner === RESULT_PLAYER_WINS){
@@ -69,3 +69,16 @@ startGameBtn.addEventListener('click', () => {//anonymous function
   alert(message);
   gameIsRunning = false;
 });
+
+// not related to game
+
+const sumUP = (...numbers) => {//rest operator always has to be the last argument
+  let sum = 0;
+  for (const mum of numbers){
+    sum += num;
+  }
+  return sum;
+};
+
+console.log(sumUp(1, 5, 10, 5));
+console.log(sumUP(1, 2, 3, 5, 6, 7, 8, 90));
